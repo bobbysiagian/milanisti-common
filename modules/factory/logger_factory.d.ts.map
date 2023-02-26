@@ -1,0 +1,1 @@
+{"version":3,"file":"logger_factory.d.ts","sourceRoot":"","sources":["logger_factory.ts"],"names":[],"mappings":"AAAA,OAAO,EAAoC,MAAM,IAAI,aAAa,EAAa,MAAM,SAAS,CAAC;AAC/F,OAAO,EAAW,UAAU,EAAE,MAAM,mBAAmB,CAAC;AAGxD,MAAM,WAAW,aAAa;IAC1B,MAAM,CAAC,EAAE,UAAU,CAAC;CACvB;AAiCD,eAAO,MAAM,mBAAmB,aAAa,aAAa,KAAQ,aAQjE,CAAC;AAEF,eAAe,mBAAmB,CAAC"}
