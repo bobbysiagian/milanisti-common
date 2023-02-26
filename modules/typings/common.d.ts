@@ -84,9 +84,9 @@ export interface QueryOptions {
 
 export interface BaseProps {
     id: number;
-    created_at: string | null;
-    updated_at: string | null;
-    deleted_at?: string | null;
+    created_at?: string;
+    updated_at?: string;
+    deleted_at?: string;
 }
 
 export interface GenericStaticClass<ClassInstance> {
