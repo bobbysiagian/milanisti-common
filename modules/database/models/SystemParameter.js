@@ -24,15 +24,27 @@ SystemParameter.init({
     },
     created_at: {
         type: DataTypes.DATE,
-        allowNull: false
+        allowNull: false,
+        get(...args) {
+            const value = this.getDataValue(args[0]);
+            return value === null ? null : moment(value).format('YYYY-MM-DD HH:mm:ss');
+        },
     },
     updated_at: {
         type: DataTypes.DATE,
-        allowNull: false
+        allowNull: false,
+        get(...args) {
+            const value = this.getDataValue(args[0]);
+            return value === null ? null : moment(value).format('YYYY-MM-DD HH:mm:ss');
+        },
     },
     deleted_at: {
         type: DataTypes.DATE,
-        allowNull: true
+        allowNull: false,
+        get(...args) {
+            const value = this.getDataValue(args[0]);
+            return value === null ? null : moment(value).format('YYYY-MM-DD HH:mm:ss');
+        },
     }
 }, {
     underscored: true,
