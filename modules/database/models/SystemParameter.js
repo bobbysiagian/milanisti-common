@@ -1,4 +1,5 @@
 const { SQLContext } = require('../index');
+const moment = require('moment')
 
 const { Model, DataTypes } = SQLContext.getORMProvider();
 
