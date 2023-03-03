@@ -49,7 +49,7 @@ class App extends logger_1.default {
     initialize() {
         return __awaiter(this, void 0, void 0, function* () {
             try {
-                if (!helpers_1.isTestEnvironment()) {
+                if (!(0, helpers_1.isTestEnvironment)()) {
                     yield this.checkEnvironmentVariables();
                     yield this.initProviders();
                 }
@@ -97,22 +97,22 @@ class App extends logger_1.default {
         this._routes_meta.push(...ctrl.routes_meta.map(item => (Object.assign(Object.assign({}, item), { controller: ctrl.constructor.name }))));
     }
     addSubscriberAsRoute(subscriber) {
-        const handler = subscriber_route_factory_1.default(subscriber);
+        const handler = (0, subscriber_route_factory_1.default)(subscriber);
         this.app.post(subscriber.path, handler);
-        this._routes_meta.push(mapper_1.generateSubscriberRouteMeta(subscriber));
+        this._routes_meta.push((0, mapper_1.generateSubscriberRouteMeta)(subscriber));
     }
     addSubscriber(subs) {
-        if (helpers_1.isTestEnvironment())
+        if ((0, helpers_1.isTestEnvironment)())
             return;
         const subscriber = subs instanceof event_1.EventSubscriber ? subs : new subs();
         const isPull = subscriber.type === event_1.SubscriberType.PULL;
         if (isPull) {
             event_1.EventBus.addSubscriber(subscriber);
         }
-        if (!isPull || helpers_1.isDevEnvironment()) {
+        if (!isPull || (0, helpers_1.isDevEnvironment)()) {
             this.addSubscriberAsRoute(subscriber);
         }
-        this._subscribers_meta.push(mapper_1.generateSubscriberMeta(subscriber));
+        this._subscribers_meta.push((0, mapper_1.generateSubscriberMeta)(subscriber));
     }
     initPlugins() {
         var _a;
@@ -122,18 +122,18 @@ class App extends logger_1.default {
             this.app.use(helmet());
             this.app.use(cors({ origin: ((_a = process.env.CORS_ORIGIN) === null || _a === void 0 ? void 0 : _a.split(',').map(crs => crs.trim())) || '*' }));
             this.app.use(compression());
-            if (!helpers_1.isTestEnvironment() && this._use_audit_log) {
+            if (!(0, helpers_1.isTestEnvironment)() && this._use_audit_log) {
                 this.app.use(audit_log_1.AuditLogMiddleware);
             }
-            if (!helpers_1.isTestEnvironment()) {
+            if (!(0, helpers_1.isTestEnvironment)()) {
                 this.app.use(morgan('common'));
                 this.app.use(constant_1.ENDPOINTS.HEALTHCHECK, (_req, res) => res.status(http_status_codes_1.StatusCodes.OK).json({ message: constant_1.DEFAULT.HEALTHCHECK_MESSAGE }));
             }
-            if (!helpers_1.isTestEnvironment() && process.env.SWAGGER) {
-                this.app.get(constant_1.ENDPOINTS.SWAGGER_SPEC, (req, res) => res.json(swagger_factory_1.default(req.headers.host, this._routes_meta)));
+            if (!(0, helpers_1.isTestEnvironment)() && process.env.SWAGGER) {
+                this.app.get(constant_1.ENDPOINTS.SWAGGER_SPEC, (req, res) => res.json((0, swagger_factory_1.default)(req.headers.host, this._routes_meta)));
                 this.app.use(constant_1.ENDPOINTS.SWAGGER_DOCS, swaggerUi.serve, swaggerUi.setup({}, { swaggerOptions: constant_1.SWAGGER_DEFAULT.OPTIONS }));
             }
-            if (!helpers_1.isTestEnvironment())
+            if (!(0, helpers_1.isTestEnvironment)())
                 yield this.extendsPlugins();
         });
     }
@@ -151,9 +151,10 @@ class App extends logger_1.default {
     }
     checkEnvironmentVariables() {
         return __awaiter(this, void 0, void 0, function* () {
+            var _a;
             let envs;
             try {
-                envs = (yield Promise.resolve().then(() => require(path.join(__dirname, `${constant_1.CONFIG.PATH}/${constant_1.CONFIG.ENV}`))));
+                envs = (yield (_a = path.join(__dirname, `${constant_1.CONFIG.PATH}/${constant_1.CONFIG.ENV}`), Promise.resolve().then(() => require(_a))));
             }
             catch (error) {
                 this.logger.warn('environment config not found, skipping check ...');

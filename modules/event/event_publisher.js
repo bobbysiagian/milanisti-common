@@ -21,7 +21,7 @@ class EventPublisher extends event_bus_1.default {
         return zlib.gzipSync(stringified);
     }
     generateAttributes(context) {
-        return helpers_1.objectValueToString(Object.assign({ request_id: uuid.v4() }, context));
+        return (0, helpers_1.objectValueToString)(Object.assign({ request_id: uuid.v4() }, context));
     }
     publish(topicName, payload, context) {
         return __awaiter(this, void 0, void 0, function* () {

@@ -101,5 +101,5 @@ class EventBus {
     }
 }
 exports.EventBus = EventBus;
-EventBus.logger = factory_1.createLogerInstance({ source: constant_1.LOG_SOURCE.GLOBAL });
+EventBus.logger = (0, factory_1.createLogerInstance)({ source: constant_1.LOG_SOURCE.GLOBAL });
 exports.default = EventBus;

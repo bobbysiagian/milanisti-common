@@ -16,7 +16,7 @@ export interface IMailerPayload {
     message: string;
     isHTML: boolean;
 }
-export declare type MailerInstance = {
+export type MailerInstance = {
     username: string;
     mailerClient: nodemailer.Transporter<SMTPTransport.SentMessageInfo>;
 };

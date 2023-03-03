@@ -13,9 +13,9 @@ const getDataFromRequest = (req) => ({
 const GlobalExceptionHandler = (error, req, res, _next) => {
     var _a;
     const { message, httpStatus = http_status_codes_1.StatusCodes.INTERNAL_SERVER_ERROR, name, data, code } = error;
-    const logger = factory_1.createLogerInstance({ source: constant_1.LOG_SOURCE.GLOBAL });
+    const logger = (0, factory_1.createLogerInstance)({ source: constant_1.LOG_SOURCE.GLOBAL });
     if (error && error.stack) {
-        if (helpers_1.isServerError(httpStatus)) {
+        if ((0, helpers_1.isServerError)(httpStatus)) {
             logger.error(message, { error, data: getDataFromRequest(req), context: req.context });
         }
         else {

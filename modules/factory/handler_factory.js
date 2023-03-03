@@ -23,7 +23,7 @@ const parseInput = (req) => ({
     files: req.files || []
 });
 const getContext = (req) => {
-    const context = helpers_1.headersToContext(req.headers);
+    const context = (0, helpers_1.headersToContext)(req.headers);
     req.context = Object.assign(Object.assign({}, context), req.context);
     return req.context;
 };

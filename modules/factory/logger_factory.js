@@ -13,9 +13,9 @@ const consoleTransportFormat = winston_1.format.printf((info) => {
             errorStack ? '\n' + errorStack : '',
             '\n'
         ].filter(item => item);
-        return `[${info.service}::${info.source}] \n${helpers_1.titleCase(level)}: ${message} ${meta.join(' ')}`;
+        return `[${info.service}::${info.source}] \n${(0, helpers_1.titleCase)(level)}: ${message} ${meta.join(' ')}`;
     }
-    return `${helpers_1.titleCase(level)}: ${message}`;
+    return `${(0, helpers_1.titleCase)(level)}: ${message}`;
 });
 /**
  * @description
@@ -25,11 +25,11 @@ const consoleTransportFormat = winston_1.format.printf((info) => {
 const generateLogTransports = () => {
     return [new winston_1.transports.Console({
             format: winston_1.format.combine(winston_1.format.splat(), winston_1.format.errors({ stack: true }), consoleTransportFormat, winston_1.format.colorize({ all: true })),
-            silent: helpers_1.isTestEnvironment()
+            silent: (0, helpers_1.isTestEnvironment)()
         })];
 };
 const createLogerInstance = (options = {}) => {
-    return winston_1.createLogger({
+    return (0, winston_1.createLogger)({
         defaultMeta: {
             source: options.source || constant_1.LOG_SOURCE.GLOBAL,
             service: process.env.SERVICE_NAME || constant_1.DEFAULT.SERVICE_NAME

@@ -9,14 +9,14 @@ export declare class SQLRepository<Props extends BaseProps = any> extends SQLCon
     constructor(modelName: string);
     createTransaction(): Promise<Transaction>;
     protected getInstance(): DBInstance;
-    findById(id: number, attributes?: Attributes, opts?: SqlOptions): Promise<Props | null>;
+    findById(id: any, attributes?: Attributes, opts?: SqlOptions): Promise<Props | null>;
     findOne(conditions: Partial<Props>, attributes?: Attributes, opts?: SqlOptions): Promise<Props | null>;
     findOneOrFail(conditions: Partial<Props>, attributes?: Attributes, opts?: SqlOptions): Promise<Props>;
     findAll(conditions: Partial<Props>, { sort, attributes }: QueryOptions, opts?: SqlOptions): Promise<Props[]>;
     upsert(search: Partial<Props>, data: Partial<Props>, opts?: SqlOptions): Promise<void>;
     create(data: Partial<Props>, opts?: SqlOptions): Promise<Props>;
     createMany(data: Partial<Props[]>, opts?: SqlOptions): Promise<Props[]>;
-    update(conditions: Partial<Props>, data: Partial<Props>, opts?: SqlOptions): Promise<[number, any]>;
+    update(conditions: Partial<Props>, data: Partial<Props>, opts?: SqlOptions): Promise<[number]>;
     delete(conditions: Partial<Props>, opts?: SqlOptions): Promise<number>;
     increment(conditions: Partial<Props>, fields: {
         [P in keyof Props]?: number;

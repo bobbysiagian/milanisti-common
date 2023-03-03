@@ -26,7 +26,7 @@ class EventSubscriber extends logger_1.default {
         return this._type;
     }
     get path() {
-        return `/subscribers/${helpers_1.camelToSnakeCase(this.constructor.name, '-')}`;
+        return `/subscribers/${(0, helpers_1.camelToSnakeCase)(this.constructor.name, '-')}`;
     }
     get maxInProgress() {
         return this._maxInProgress;

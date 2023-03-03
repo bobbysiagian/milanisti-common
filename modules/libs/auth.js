@@ -11,8 +11,8 @@ class Auth {
         let privateKey = String(process.env.JWT_SECRET || 'default');
         let publicKey = String(process.env.JWT_SECRET || 'default');
         if (String(process.env.JWT_USE_PAIR_KEY) == 'true') {
-            const privateKeyFile = fs_1.readFileSync(String(process.env.JWT_PRIVATE_KEY_PATH || ''));
-            const publicKeyFile = fs_1.readFileSync(String(process.env.JWT_PUBLIC_KEY_PATH || ''));
+            const privateKeyFile = (0, fs_1.readFileSync)(String(process.env.JWT_PRIVATE_KEY_PATH || ''));
+            const publicKeyFile = (0, fs_1.readFileSync)(String(process.env.JWT_PUBLIC_KEY_PATH || ''));
             privateKey = privateKeyFile.toString();
             publicKey = publicKeyFile.toString();
         }

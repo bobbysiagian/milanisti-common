@@ -58,7 +58,7 @@ class SQLRepository extends sql_1.default {
             return this.findOne(conditions, attributes, opts)
                 .then((res) => {
                 if (!res) {
-                    throw new http_error_1.NotFoundError(`${helpers_1.camelToSnakeCase(this.modelName).toUpperCase()}_NOT_FOUND`);
+                    throw new http_error_1.NotFoundError(`${(0, helpers_1.camelToSnakeCase)(this.modelName).toUpperCase()}_NOT_FOUND`);
                 }
                 return res;
             });
@@ -66,7 +66,7 @@ class SQLRepository extends sql_1.default {
     }
     findAll(conditions, { sort = DEFAULT.SORT, attributes }, opts) {
         return __awaiter(this, void 0, void 0, function* () {
-            const order = helpers_1.sorter(sort || DEFAULT.SORT);
+            const order = (0, helpers_1.sorter)(sort || DEFAULT.SORT);
             const db = this.getInstance();
             return db.model[this.modelName]
                 .findAll({
@@ -147,14 +147,14 @@ class SQLRepository extends sql_1.default {
     }
     paginate(conditions, { page = 1, per_page = 10, sort = DEFAULT.SORT, attributes }, opts) {
         return __awaiter(this, void 0, void 0, function* () {
-            const order = helpers_1.sorter(sort);
+            const order = (0, helpers_1.sorter)(sort);
             const db = this.getInstance();
             return db.model[this.modelName]
                 .findAndCountAll({
                 where: conditions,
                 attributes,
                 limit: per_page,
-                offset: helpers_1.offset(page, per_page),
+                offset: (0, helpers_1.offset)(page, per_page),
                 order: [order],
                 transaction: opts === null || opts === void 0 ? void 0 : opts.transaction
             })

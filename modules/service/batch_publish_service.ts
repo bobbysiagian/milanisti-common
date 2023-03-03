@@ -48,7 +48,7 @@ export abstract class BatchPublishService<Model extends BaseProps, PublishPayloa
 
         await bluebird.map(pages, (page: number) => this.getPaginated(page, this.perPage)
             .then(({ data: datas }) => datas.map(this.transform))
-            .then(payloads => this.event.publishBatch(this.topic, payloads))
+            .then((payloads: any) => this.event.publishBatch(this.topic, payloads))
             .then(() => helpers.sleep(this.perBatchWait)), { concurrency: 1 });
     }
 

@@ -28,7 +28,7 @@ export class SQLRepository<Props extends BaseProps = any> extends SQLContext {
         return SQLContext.getInstance();
     }
 
-    public async findById(id: number, attributes?: Attributes, opts?: SqlOptions): Promise<Props | null> {
+    public async findById(id: any, attributes?: Attributes, opts?: SqlOptions): Promise<Props | null> {
         const db = this.getInstance();
         return db.model[this.modelName]
             .findOne<Model<Props>>({
@@ -96,7 +96,7 @@ export class SQLRepository<Props extends BaseProps = any> extends SQLContext {
             .then(rows => rows.map(row => row.get()));
     }
 
-    public async update(conditions: Partial<Props>, data: Partial<Props>, opts?: SqlOptions): Promise<[number, any]> {
+    public async update(conditions: Partial<Props>, data: Partial<Props>, opts?: SqlOptions): Promise<[number]> {
         const db = this.getInstance();
         return db.model[this.modelName].update(data, {
             where: conditions as any,

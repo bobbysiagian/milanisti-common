@@ -31,7 +31,7 @@ const getRoles = (req) => __awaiter(void 0, void 0, void 0, function* () {
 });
 exports.getRoles = getRoles;
 const RolesValidator = (roles) => (req, _res, next) => {
-    exports.getRoles(req)
+    (0, exports.getRoles)(req)
         .then((userRoles) => {
         for (const role of roles) {
             for (const userRole of userRoles) {

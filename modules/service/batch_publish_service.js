@@ -37,7 +37,7 @@ class BatchPublishService extends service_1.default {
             this.logger.info(`syncronizing total of ${totalData} datas of ${pages} pages`);
             yield bluebird.map(pages, (page) => this.getPaginated(page, this.perPage)
                 .then(({ data: datas }) => datas.map(this.transform))
-                .then(payloads => this.event.publishBatch(this.topic, payloads))
+                .then((payloads) => this.event.publishBatch(this.topic, payloads))
                 .then(() => utils_1.helpers.sleep(this.perBatchWait)), { concurrency: 1 });
         });
     }

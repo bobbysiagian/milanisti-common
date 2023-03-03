@@ -8,7 +8,7 @@ const database_1 = require("../database");
 const http_status_codes_1 = require("http-status-codes");
 const helpers_1 = require("../utils/helpers");
 const RateLimiter = (max = 5, retryAfter = 1) => {
-    if (helpers_1.isTestEnvironment()) {
+    if ((0, helpers_1.isTestEnvironment)()) {
         return (_req, _res, next) => next();
     }
     return RateLimit({

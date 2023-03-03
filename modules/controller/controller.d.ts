@@ -3,8 +3,8 @@ import * as Joi from 'joi';
 import FlagService from '../service/flag_service';
 import { HandlerMethod, ResponseData } from '../typings/common';
 import Logger from '../utils/logger';
-declare type AllowedMethod = 'get' | 'post' | 'put' | 'delete';
-declare type MiddleWare = RequestHandler | RequestHandler[];
+type AllowedMethod = 'get' | 'post' | 'put' | 'delete';
+type MiddleWare = RequestHandler | RequestHandler[];
 export interface StaticBaseController {
     new (...param: any): Controller;
 }

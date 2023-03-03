@@ -15,7 +15,7 @@ const http_error_1 = require("../utils/http_error");
 const SubscriberRouteFactory = (subscriber) => {
     return (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
         try {
-            const context = helpers_1.headersToContext(req.headers);
+            const context = (0, helpers_1.headersToContext)(req.headers);
             yield subscriber.handler(req.body || {}, context);
             return res.status(http_status_codes_1.StatusCodes.OK).json({
                 message: `${subscriber.constructor.name} successfully executed`

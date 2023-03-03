@@ -36,7 +36,7 @@ class DBModule {
             let sequelize;
             if (read_replicas && read_replicas.length) {
                 const replication = {
-                    write: helpers_1.generateDatabaseConfig(connection_string),
+                    write: (0, helpers_1.generateDatabaseConfig)(connection_string),
                     read: read_replicas.map(helpers_1.generateDatabaseConfig)
                 };
                 const dbOptions = Object.assign(Object.assign(Object.assign({}, opts), options), { replication });

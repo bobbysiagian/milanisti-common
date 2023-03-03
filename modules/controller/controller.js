@@ -20,7 +20,7 @@ class Controller extends logger_1.default {
         if (middleware) {
             this.setMiddleware(middleware);
         }
-        this._routes = express_1.Router({ mergeParams: true });
+        this._routes = (0, express_1.Router)({ mergeParams: true });
         this.setRoutes();
     }
     setMiddleware(middleware) {
@@ -37,20 +37,20 @@ class Controller extends logger_1.default {
             middlewares = options.middlewares instanceof Array ? options.middlewares : [options.middlewares];
         }
         if (options === null || options === void 0 ? void 0 : options.allowedRoles) {
-            middlewares.push(roles_validator_1.default(options === null || options === void 0 ? void 0 : options.allowedRoles));
+            middlewares.push((0, roles_validator_1.default)(options === null || options === void 0 ? void 0 : options.allowedRoles));
         }
         if (options === null || options === void 0 ? void 0 : options.validate) {
-            middlewares.push(request_validator_1.default(options.validate));
+            middlewares.push((0, request_validator_1.default)(options.validate));
         }
         const pathName = this.getVersionedPath(path, options === null || options === void 0 ? void 0 : options.version);
         const routeMiddleware = middlewares instanceof Array ? middlewares : [middlewares];
         const combinedMiddlewared = [...this._middlewares, ...routeMiddleware];
-        this.routes[httpMethod](pathName, combinedMiddlewared, handler_factory_1.default(handler));
+        this.routes[httpMethod](pathName, combinedMiddlewared, (0, handler_factory_1.default)(handler));
         this._routes_meta.push({
             httpMethod: httpMethod.toUpperCase(),
             path: pathName,
             methodName: handler.name.split(' ')[1],
-            requestMeta: (options === null || options === void 0 ? void 0 : options.validate) && swagger_1.default(options.validate)
+            requestMeta: (options === null || options === void 0 ? void 0 : options.validate) && (0, swagger_1.default)(options.validate)
         });
     }
     get routes() {
