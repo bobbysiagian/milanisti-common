@@ -83,7 +83,7 @@ export interface QueryOptions {
 }
 
 export interface BaseProps {
-    id?: number;
+    id?: any;
     created_at?: string;
     updated_at?: string;
     deleted_at?: string;
