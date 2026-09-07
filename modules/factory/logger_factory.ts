@@ -6,7 +6,7 @@ export interface LoggerOptions {
     source?: LOG_SOURCE;
 }
 
-const consoleTransportFormat = format.printf((info) => {
+const consoleTransportFormat = format.printf((info: any) => {
     const { level, message } = info;
     if (level === 'error') {
         const errorStack = info.stack || info.error && info.error.stack;
