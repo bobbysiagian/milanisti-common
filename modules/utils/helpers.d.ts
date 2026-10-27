@@ -20,12 +20,12 @@ export declare const generateDatabaseConfig: (env: string) => Record<string, any
 export declare const sleep: (ms: number) => Promise<void>;
 declare const _default: {
     timestamp: () => string;
-    parseDataObject: (object: IObject<any>) => IObject<any>;
+    parseDataObject: (object: IObject) => IObject;
     offset: (page?: number, per_page?: number) => number;
     isEmptyArray: (array: any[]) => boolean;
-    isEmptyObject: (object: IObject<any>) => boolean;
-    trimObjectKey: (object: IObject<any>) => IObject<any>;
-    stringifyObjectKey: (object: IObject<any>) => IObject<any>;
+    isEmptyObject: (object: IObject) => boolean;
+    trimObjectKey: (object: IObject) => IObject;
+    stringifyObjectKey: (object: IObject) => IObject;
     spitTrim: (str: string, delimiter?: string) => string[];
     camelToSnakeCase: (str: string, delimiter?: string) => string;
     isServerError: (statusCode: number) => boolean;

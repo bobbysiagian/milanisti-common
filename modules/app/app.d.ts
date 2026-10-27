@@ -1,4 +1,3 @@
-/// <reference types="express-serve-static-core" />
 import * as express from 'express';
 import Controller, { StaticBaseController } from '../controller/controller';
 import { EventSubscriber, StaticEventSubscriber } from '../event';

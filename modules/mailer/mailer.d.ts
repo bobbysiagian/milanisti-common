@@ -1,5 +1,4 @@
 import * as nodemailer from 'nodemailer';
-import SMTPTransport = require('nodemailer/lib/smtp-transport');
 interface IMailerOpts {
     host?: string;
     port?: number;
@@ -18,12 +17,12 @@ export interface IMailerPayload {
 }
 export type MailerInstance = {
     username: string;
-    mailerClient: nodemailer.Transporter<SMTPTransport.SentMessageInfo>;
+    mailerClient: nodemailer.Transporter;
 };
 export declare class Mailer {
     private static instance;
     static initialize({ host, port, username, password, }: IMailerOpts): void;
-    static sendEmail({ fromName, fromEmail, to, cc, bcc, subject, message, isHTML }: IMailerPayload): Promise<SMTPTransport.SentMessageInfo>;
+    static sendEmail({ fromName, fromEmail, to, cc, bcc, subject, message, isHTML }: IMailerPayload): Promise<nodemailer.SentMessageInfo>;
 }
 export default Mailer;
 //# sourceMappingURL=mailer.d.ts.map

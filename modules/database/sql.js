@@ -30,8 +30,8 @@ const opts = {
     }
 };
 class DBModule {
-    static initialize({ connection_string, models_path, read_replicas, options }) {
-        return __awaiter(this, void 0, void 0, function* () {
+    static initialize(_a) {
+        return __awaiter(this, arguments, void 0, function* ({ connection_string, models_path, read_replicas, options }) {
             const models = {};
             let sequelize;
             if (read_replicas && read_replicas.length) {
@@ -96,8 +96,8 @@ class DBModule {
         }
         return this.instance.model[modelName];
     }
-    static createTransaction(isolationLevel = this.instance.ORMProvider.Transaction.ISOLATION_LEVELS.READ_UNCOMMITTED) {
-        return __awaiter(this, void 0, void 0, function* () {
+    static createTransaction() {
+        return __awaiter(this, arguments, void 0, function* (isolationLevel = this.instance.ORMProvider.Transaction.ISOLATION_LEVELS.READ_UNCOMMITTED) {
             return this.instance.context.transaction({ isolationLevel });
         });
     }

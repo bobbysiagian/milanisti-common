@@ -10,17 +10,17 @@ var COMMON_ERRORS;
     COMMON_ERRORS["ROUTE_NOT_FOUND"] = "ROUTE_NOT_FOUND";
     COMMON_ERRORS["NO_ACCESS"] = "NO_ACCESS";
     COMMON_ERRORS["INVALID_CREDENTIALS"] = "INVALID_CREDENTIALS";
-})(COMMON_ERRORS = exports.COMMON_ERRORS || (exports.COMMON_ERRORS = {}));
+})(COMMON_ERRORS || (exports.COMMON_ERRORS = COMMON_ERRORS = {}));
 var CLEARANCE;
 (function (CLEARANCE) {
     CLEARANCE[CLEARANCE["BLOCKED"] = 0] = "BLOCKED";
     CLEARANCE[CLEARANCE["AUTHENTICATED"] = 1] = "AUTHENTICATED";
-})(CLEARANCE = exports.CLEARANCE || (exports.CLEARANCE = {}));
+})(CLEARANCE || (exports.CLEARANCE = CLEARANCE = {}));
 var TOKEN_TYPE;
 (function (TOKEN_TYPE) {
     TOKEN_TYPE["BEARER"] = "Bearer";
     TOKEN_TYPE["BASIC"] = "Basic";
-})(TOKEN_TYPE = exports.TOKEN_TYPE || (exports.TOKEN_TYPE = {}));
+})(TOKEN_TYPE || (exports.TOKEN_TYPE = TOKEN_TYPE = {}));
 var LOG_SOURCE;
 (function (LOG_SOURCE) {
     LOG_SOURCE["CONTROLLER"] = "controller";
@@ -29,7 +29,7 @@ var LOG_SOURCE;
     LOG_SOURCE["SERVICE"] = "service";
     LOG_SOURCE["GLOBAL"] = "global";
     LOG_SOURCE["MIDDLEWARE"] = "middleware";
-})(LOG_SOURCE = exports.LOG_SOURCE || (exports.LOG_SOURCE = {}));
+})(LOG_SOURCE || (exports.LOG_SOURCE = LOG_SOURCE = {}));
 exports.MANDATORY_REQUEST_HEADER = {
     REQUEST_ID: 'x-request-id',
     USER_NAME: 'x-user-name',
@@ -79,7 +79,7 @@ var HttpMethod;
     HttpMethod["GET"] = "GET";
     HttpMethod["PUT"] = "PUT";
     HttpMethod["DELETE"] = "DELETE";
-})(HttpMethod = exports.HttpMethod || (exports.HttpMethod = {}));
+})(HttpMethod || (exports.HttpMethod = HttpMethod = {}));
 exports.SYSPAR = {
     MODEL_PATH: '../database/models',
     MODEL_NAME: 'SystemParameter.js'

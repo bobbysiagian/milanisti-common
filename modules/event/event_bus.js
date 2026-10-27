@@ -19,7 +19,7 @@ var EventBusProvider;
     EventBusProvider["CLOUD_PUBSUB"] = "cloud-pubsub";
     EventBusProvider["MQTT"] = "mqtt";
     EventBusProvider["SQS"] = "sqs";
-})(EventBusProvider = exports.EventBusProvider || (exports.EventBusProvider = {}));
+})(EventBusProvider || (exports.EventBusProvider = EventBusProvider = {}));
 class EventBus {
     static initialize(options) {
         this.instance = {

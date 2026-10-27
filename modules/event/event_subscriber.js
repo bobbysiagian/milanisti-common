@@ -8,7 +8,7 @@ var SubscriberType;
 (function (SubscriberType) {
     SubscriberType["PULL"] = "pull";
     SubscriberType["PUSH"] = "push";
-})(SubscriberType = exports.SubscriberType || (exports.SubscriberType = {}));
+})(SubscriberType || (exports.SubscriberType = SubscriberType = {}));
 class EventSubscriber extends logger_1.default {
     constructor(options) {
         var _a, _b;

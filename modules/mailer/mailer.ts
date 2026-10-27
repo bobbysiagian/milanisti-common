@@ -1,5 +1,4 @@
 import * as nodemailer from 'nodemailer'
-import SMTPTransport = require('nodemailer/lib/smtp-transport')
 
 interface IMailerOpts {
     host?: string
@@ -21,7 +20,7 @@ export interface IMailerPayload {
 
 export type MailerInstance = {
     username: string
-    mailerClient: nodemailer.Transporter<SMTPTransport.SentMessageInfo>
+    mailerClient: nodemailer.Transporter
 }
 
 export class Mailer {
@@ -55,7 +54,7 @@ export class Mailer {
         })
     }
 
-    public static async sendEmail({ fromName, fromEmail, to, cc, bcc, subject, message, isHTML }: IMailerPayload): Promise<SMTPTransport.SentMessageInfo> {
+    public static async sendEmail({ fromName, fromEmail, to, cc, bcc, subject, message, isHTML }: IMailerPayload): Promise<nodemailer.SentMessageInfo> {
         let from = ''
         let text = ''
         let html = ''
