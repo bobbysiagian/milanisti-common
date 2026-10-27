@@ -1,1 +1,1 @@
-{"version":3,"file":"rate_limit.d.ts","sourceRoot":"","sources":["rate_limit.ts"],"names":[],"mappings":";AAKA,OAAO,EAAE,cAAc,EAAE,MAAM,SAAS,CAAC;AAGzC,eAAO,MAAM,WAAW,yCAA8B,cAqBrD,CAAC;;;;AAEF,wBAEE"}
+{"version":3,"file":"rate_limit.d.ts","sourceRoot":"","sources":["rate_limit.ts"],"names":[],"mappings":"AAKA,OAAO,EAAE,cAAc,EAAE,MAAM,SAAS,CAAC;AAGzC,eAAO,MAAM,WAAW,GAAI,YAAO,EAAE,mBAAc,KAAG,cAqBrD,CAAC;;wDArBoD,cAAc;;AAuBpE,wBAEE"}

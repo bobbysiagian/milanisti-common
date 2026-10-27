@@ -33,8 +33,8 @@ class Mailer {
             throw err;
         });
     }
-    static sendEmail({ fromName, fromEmail, to, cc, bcc, subject, message, isHTML }) {
-        return __awaiter(this, void 0, void 0, function* () {
+    static sendEmail(_a) {
+        return __awaiter(this, arguments, void 0, function* ({ fromName, fromEmail, to, cc, bcc, subject, message, isHTML }) {
             let from = '';
             let text = '';
             let html = '';

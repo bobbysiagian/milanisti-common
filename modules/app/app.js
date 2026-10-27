@@ -115,8 +115,8 @@ class App extends logger_1.default {
         this._subscribers_meta.push((0, mapper_1.generateSubscriberMeta)(subscriber));
     }
     initPlugins() {
-        var _a;
         return __awaiter(this, void 0, void 0, function* () {
+            var _a;
             this.app.use(express.json({ limit: this._limit }));
             this.app.use(express.urlencoded({ extended: true, limit: this._limit }));
             this.app.use(helmet());
@@ -151,10 +151,9 @@ class App extends logger_1.default {
     }
     checkEnvironmentVariables() {
         return __awaiter(this, void 0, void 0, function* () {
-            var _a;
             let envs;
             try {
-                envs = (yield (_a = path.join(__dirname, `${constant_1.CONFIG.PATH}/${constant_1.CONFIG.ENV}`), Promise.resolve().then(() => require(_a))));
+                envs = (yield Promise.resolve(`${path.join(__dirname, `${constant_1.CONFIG.PATH}/${constant_1.CONFIG.ENV}`)}`).then(s => require(s)));
             }
             catch (error) {
                 this.logger.warn('environment config not found, skipping check ...');

@@ -90,8 +90,8 @@ class RedisRepo extends redis_1.default {
             yield redisClient.hdel(this.path, key);
         });
     }
-    setExpire(key, time = 600) {
-        return __awaiter(this, void 0, void 0, function* () {
+    setExpire(key_1) {
+        return __awaiter(this, arguments, void 0, function* (key, time = 600) {
             const redisClient = RedisRepo.getInstance();
             yield redisClient.expire(key, time);
         });

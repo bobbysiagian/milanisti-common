@@ -64,8 +64,8 @@ class SQLRepository extends sql_1.default {
             });
         });
     }
-    findAll(conditions, { sort = DEFAULT.SORT, attributes }, opts) {
-        return __awaiter(this, void 0, void 0, function* () {
+    findAll(conditions_1, _a, opts_1) {
+        return __awaiter(this, arguments, void 0, function* (conditions, { sort = DEFAULT.SORT, attributes }, opts) {
             const order = (0, helpers_1.sorter)(sort || DEFAULT.SORT);
             const db = this.getInstance();
             return db.model[this.modelName]
@@ -145,8 +145,8 @@ class SQLRepository extends sql_1.default {
             }
         };
     }
-    paginate(conditions, { page = 1, per_page = 10, sort = DEFAULT.SORT, attributes }, opts) {
-        return __awaiter(this, void 0, void 0, function* () {
+    paginate(conditions_1, _a, opts_1) {
+        return __awaiter(this, arguments, void 0, function* (conditions, { page = 1, per_page = 10, sort = DEFAULT.SORT, attributes }, opts) {
             const order = (0, helpers_1.sorter)(sort);
             const db = this.getInstance();
             return db.model[this.modelName]
